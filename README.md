@@ -1,2 +1,2 @@
-### Hexlet tests and linter status1:
+### Hexlet tests and linter status:
 [![Actions Status](https://github.com/qwelp/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/qwelp/php-project-lvl1/actions)
