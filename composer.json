@@ -1,0 +1,7 @@
+{
+  "name": "hexlet/php-project-lvl1",
+  "description": "Проект №1",
+  "bin": [
+    "bin/brain-games"
+  ]
+}
