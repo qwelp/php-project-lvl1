@@ -1,7 +1,29 @@
 {
-  "name": "hexlet/php-project-lvl1",
-  "description": "Проект №1",
-  "bin": [
-    "bin/brain-games"
-  ]
+    "name": "hexlet/php-project-lvl1",
+    "description": "Project-1",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\PhpProjectLvl1\\": "src/"
+        },
+        "files": [
+            "src/Cli.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Vladimir Bun",
+            "email": "qwelp@mail.ru"
+        }
+    ],
+    "bin": [
+        "bin/brain-games"
+    ],
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.13"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6"
+    }
 }
+
+
