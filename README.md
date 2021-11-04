@@ -5,6 +5,8 @@
 
 [![PHP CI](https://github.com/qwelp/php-project-lvl1/actions/workflows/workflow.yml/badge.svg)](https://github.com/qwelp/php-project-lvl1/actions/workflows/workflow.yml)
 
+## Игры разума
+
 [Аскинема 5 шаг](https://asciinema.org/a/Ygq81Tvq2gKwm96VMr8pVlFz6)
 
 [Аскинема 6 шаг](https://asciinema.org/a/3lVpTSGCH64PpUhPVqHwvnVMe)
