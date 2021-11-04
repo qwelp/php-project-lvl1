@@ -1,5 +1,5 @@
 {
-    "name": "hexlet/php-project-lvl1",
+    "name": "hexlet/project-action@release",
     "description": "Project-1",
     "autoload": {
         "psr-4": {
