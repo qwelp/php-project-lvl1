@@ -45,6 +45,7 @@ function start(): void
         } else {
             tryAgain($name, $answer, $result);
             $flag = false;
+            $roundsCount = -1;
         }
     } while ($roundsCount > 0);
 
