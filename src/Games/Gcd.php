@@ -21,7 +21,7 @@ function start(): void
         $firstInt = rand(1, 100);
         $lastInt = rand(1, 100);
 
-        $result = gcd($firstInt, $lastInt);
+        $result = (string) gcd($firstInt, $lastInt);
         $answer = prompt("Question: {$firstInt} {$lastInt}");
 
         if ($answer == $result) {
@@ -37,11 +37,11 @@ function start(): void
         line("Congratulations, {$name}!");
     } else {
         line("Your answer: {$answer}");
-        tryAgain($name, $answer, (string) $result);
+        tryAgain($name, $answer, $result);
     }
 }
 
-function gcd(int $a, int $b): string
+function gcd(int $a, int $b): int
 {
     return ($a % $b) ? gcd($b, $a % $b) : $b;
 }
