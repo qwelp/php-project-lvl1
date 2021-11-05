@@ -17,10 +17,10 @@ function start(): void
     $name = welcome();
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-    $answer = prompt("Question: {$randInt}");
-    $result = IsPrime($randInt) ? 'yes' : 'no';
-
     do {
+        $answer = prompt("Question: {$randInt}");
+        $result = IsPrime($randInt) ? 'yes' : 'no';
+
         if ($result == $answer) {
             yourAnswer($answer);
             $roundsCount--;
