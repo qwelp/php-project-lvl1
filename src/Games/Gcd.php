@@ -41,7 +41,7 @@ function start(): void
     }
 }
 
-function gcd(int $a, int $b): bool
+function gcd(int $a, int $b): string
 {
     return ($a % $b) ? gcd($b, $a % $b) : $b;
 }
