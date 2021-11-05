@@ -12,6 +12,7 @@ use const Src\Engine\ROUNDS_COUNT;
 
 function start(): void
 {
+    $flag = true;
     $roundsCount = ROUNDS_COUNT;
     $name = welcome();
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -26,7 +27,7 @@ function start(): void
             $result = "no";
         }
 
-        if (in_array($answer, ['yes', 'no'])) {
+        if (in_array($answer, ['yes', 'no'], true)) {
             if ($answer == 'yes') {
                 if ($randInt % 2 == 0) {
                     yourAnswer($answer);
@@ -41,6 +42,7 @@ function start(): void
                     yourAnswer($answer);
                     $roundsCount--;
                 } else {
+                    $flag = false;
                     $roundsCount = -1;
                 }
             }
@@ -49,9 +51,9 @@ function start(): void
         }
     } while ($roundsCount > 0);
 
-    if ($roundsCount) {
-        tryAgain($name, $answer, $result);
-    } else {
+    if ($flag) {
         line("Congratulations, {$name}!");
+    } else {
+        tryAgain($name, $answer, $result);
     }
 }
