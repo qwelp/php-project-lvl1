@@ -43,9 +43,12 @@ function start(): void
 
 function gcd(int $a, int $b): int
 {
-    if ($a % $b) {
-        return gcd($b, $a % $b);
-    } else {
-        return $b;
+    while ($a != $b) {
+        if ($a > $b) {
+            $a =  $a - $b;
+        } else {
+            $b = $b - $a;
+        }
     }
+    return $b;
 }
