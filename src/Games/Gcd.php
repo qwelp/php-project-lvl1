@@ -43,5 +43,9 @@ function start(): void
 
 function gcd(int $a, int $b): int
 {
-    return ($a % $b) ? gcd($b, $a % $b) : $b;
+    if ($a % $b) {
+        return gcd($b, $a % $b);
+    } else {
+        return $b;
+    }
 }
