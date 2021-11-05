@@ -8,8 +8,11 @@ use function Src\Engine\welcome;
 use function Src\Engine\tryAgain;
 use function Src\Engine\yourAnswer;
 
+use const Src\Engine\ROUNDS_COUNT;
+
 function start(): void
 {
+    $roundsCount = ROUNDS_COUNT;
     $randInt = rand(1, 100);
     $name = welcome();
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -17,14 +20,24 @@ function start(): void
     $answer = prompt("Question: {$randInt}");
     $result = IsPrime($randInt) ? 'yes' : 'no';
 
-    if ($result == $answer) {
-        yourAnswer($answer);
-    } else {
+    do {
+        if ($result == $answer) {
+            yourAnswer($answer);
+            $roundsCount--;
+        } else {
+            $roundsCount = -1;
+        }
+    } while ($roundsCount > 0);
+
+    if ($roundsCount) {
+        line("Your answer: {$answer}");
         tryAgain($name, $answer, $result);
+    } else {
+        line("Congratulations, {$name}!");
     }
 }
 
-function IsPrime($int)
+function IsPrime($p)
 {
     $r1 = $p % 2;
     $r2 = $p % 3;
