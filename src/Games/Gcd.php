@@ -12,6 +12,7 @@ use const Src\Engine\ROUNDS_COUNT;
 
 function start(): void
 {
+    $flag = true;
     $roundsCount = ROUNDS_COUNT;
     $name = welcome();
     line('Find the greatest common divisor of given numbers.');
@@ -27,19 +28,20 @@ function start(): void
             yourAnswer($answer);
             $roundsCount--;
         } else {
+            $flag = false;
             $roundsCount = -1;
         }
     } while ($roundsCount > 0);
 
-    if ($roundsCount) {
+    if ($flag) {
+        line("Congratulations, {$name}!");
+    } else {
         line("Your answer: {$answer}");
         tryAgain($name, $answer, $result);
-    } else {
-        line("Congratulations, {$name}!");
     }
 }
 
-function gcd($a, $b)
+function gcd(int $a, int $b): bool
 {
     return ($a % $b) ? gcd($b, $a % $b) : $b;
 }

@@ -12,6 +12,7 @@ use const Src\Engine\ROUNDS_COUNT;
 
 function start(): void
 {
+    $flag = true;
     $roundsCount = ROUNDS_COUNT;
     $name = welcome();
     line('What number is missing in the progression?');
@@ -38,14 +39,15 @@ function start(): void
             yourAnswer($answer);
             $roundsCount--;
         } else {
+            $flag = false;
             $roundsCount = -1;
         }
     } while ($roundsCount > 0);
 
-    if ($roundsCount) {
-        line("Your answer: {$answer}");
-        tryAgain($name, $answer, $result);
-    } else {
+    if ($flag) {
         line("Congratulations, {$name}!");
+    } else {
+        line("Your answer: {$answer}");
+        tryAgain($name, $answer, (string) $result);
     }
 }
