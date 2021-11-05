@@ -34,7 +34,7 @@ function start(): void
                 } else {
                     $roundsCount = -1;
                 }
-            } 
+            }
 
             if ($answer == 'no') {
                 if ($randInt % 2 != 0) {
@@ -49,7 +49,7 @@ function start(): void
         }
     } while ($roundsCount > 0);
 
-    if($roundsCount) {
+    if ($roundsCount) {
         tryAgain($name, $answer, $result);
     } else {
         line("Congratulations, {$name}!");
