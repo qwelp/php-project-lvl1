@@ -13,6 +13,7 @@ use const Src\Engine\ROUNDS_COUNT;
 function start(): void
 {
     $result = 0;
+    $flag = true;
     $arrSymbol = ['+', '-', '*'];
     $roundsCount = ROUNDS_COUNT;
     $name = welcome();
@@ -43,16 +44,16 @@ function start(): void
             $roundsCount--;
         } else {
             tryAgain($name, $answer, $result);
-            $roundsCount = -1;
+            $flag = false;
         }
     } while ($roundsCount > 0);
 
-    if ($roundsCount) {
+    if ($flag) {
+        line("Congratulations, {$name}!");
+    } else {
         line($question);
         line("Your answer: {$answer}");
         line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
         line("Let's try again, {$name}!");
-    } else {
-        line("Congratulations, {$name}!");
     }
 }
