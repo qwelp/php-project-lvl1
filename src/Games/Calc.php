@@ -12,6 +12,7 @@ use const Src\Engine\ROUNDS_COUNT;
 
 function start(): void
 {
+    $result = 0;
     $arrSymbol = ['+', '-', '*'];
     $roundsCount = ROUNDS_COUNT;
     $name = welcome();
