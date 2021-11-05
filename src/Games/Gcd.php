@@ -24,7 +24,7 @@ function start(): void
         $result = gcd($firstInt, $lastInt);
         $answer = prompt("Question: {$firstInt} {$lastInt}");
 
-        if ($answer === $result) {
+        if ($answer == $result) {
             yourAnswer($answer);
             $roundsCount--;
         } else {
@@ -41,7 +41,7 @@ function start(): void
     }
 }
 
-function gcd(int $a, int $b): bool
+function gcd(int $a, int $b): int
 {
     return ($a % $b) ? gcd($b, $a % $b) : $b;
 }
