@@ -38,9 +38,14 @@ function start(): void
             yourAnswer($answer);
             $roundsCount--;
         } else {
-            tryAgain($name, $answer, $result);
+            $roundsCount = -1;
         }
     } while ($roundsCount > 0);
 
-    line("Congratulations, {$name}!");
+    if ($roundsCount) {
+        line("Your answer: {$answer}");
+        tryAgain($name, $answer, $result);
+    } else {
+        line("Congratulations, {$name}!");
+    }
 }
