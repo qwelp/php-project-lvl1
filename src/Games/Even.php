@@ -32,22 +32,26 @@ function start(): void
                     yourAnswer($answer);
                     $roundsCount--;
                 } else {
-                    tryAgain($name, $answer, $result);
+                    $roundsCount = -1;
                 }
-            }
+            } 
 
             if ($answer == 'no') {
                 if ($randInt % 2 != 0) {
                     yourAnswer($answer);
                     $roundsCount--;
                 } else {
-                    tryAgain($name, $answer, $result);
+                    $roundsCount = -1;
                 }
             }
         } else {
-            tryAgain($name, $answer, $result);
+            $roundsCount = -1;
         }
     } while ($roundsCount > 0);
 
-    line("Congratulations, {$name}!");
+    if($roundsCount) {
+        tryAgain($name, $answer, $result);
+    } else {
+        line("Congratulations, {$name}!");
+    }
 }
