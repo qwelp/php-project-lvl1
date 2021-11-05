@@ -43,7 +43,7 @@ function start(): void
             yourAnswer($answer);
             $roundsCount--;
         } else {
-            tryAgain($name, $answer, $result);
+            tryAgain($name, $answer, (string) $result);
             $flag = false;
             $roundsCount = -1;
         }

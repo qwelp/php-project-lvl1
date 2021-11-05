@@ -22,7 +22,7 @@ function yourAnswer(string $answer): void
     line("Correct!");
 }
 
-function tryAgain($name, $answer, $correctAnswer): void
+function tryAgain(string $name, string $answer, string $correctAnswer): void
 {
     line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
     line("Let's try again, {$name}!");
