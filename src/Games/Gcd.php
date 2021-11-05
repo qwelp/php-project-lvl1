@@ -37,7 +37,7 @@ function start(): void
         line("Congratulations, {$name}!");
     } else {
         line("Your answer: {$answer}");
-        tryAgain($name, $answer, $result);
+        tryAgain($name, $answer, (string) $result);
     }
 }
 

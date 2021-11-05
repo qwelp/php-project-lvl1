@@ -20,14 +20,14 @@ function start(): void
 
     do {
         $answer = prompt("Question: {$randInt}");
-        $result = IsPrime((int) $randInt) ? 'yes' : 'no';
+        $result = IsPrime($randInt) ? 'yes' : 'no';
 
         if ($result == $answer) {
             yourAnswer($answer);
             $roundsCount--;
         } else {
             $flag = false;
-            $roundsCount = -1;
+            break;
         }
     } while ($roundsCount > 0);
 
