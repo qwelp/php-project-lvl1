@@ -26,10 +26,9 @@ function start(): void
 
 function IsPrime($int)
 {
-    for ($i = 2; $i < $int; $i++) {
-        if ($int % $i == 0) {
-            return 0;
-        }
-    }
-    return 1;
+    $r1 = $p % 2;
+    $r2 = $p % 3;
+    $r3 = $p % 5;
+
+    return ($p > 1) && (($r1 >= 1) && ($r2 >= 1) && ($r3 >= 1)) || in_array($p, [2,3,5]);
 }
