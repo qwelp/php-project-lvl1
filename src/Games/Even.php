@@ -33,6 +33,7 @@ function start(): void
                     yourAnswer($answer);
                     $roundsCount--;
                 } else {
+                    $flag = false;
                     $roundsCount = -1;
                 }
             }
@@ -47,6 +48,7 @@ function start(): void
                 }
             }
         } else {
+            $flag = false;
             $roundsCount = -1;
         }
     } while ($roundsCount > 0);
