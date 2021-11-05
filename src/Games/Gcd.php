@@ -24,12 +24,12 @@ function start(): void
         $result = gcd($firstInt, $lastInt);
         $answer = prompt("Question: {$firstInt} {$lastInt}");
 
-        if ($answer == $result) {
+        if ($answer === $result) {
             yourAnswer($answer);
             $roundsCount--;
         } else {
             $flag = false;
-            $roundsCount = -1;
+            break;
         }
     } while ($roundsCount > 0);
 
