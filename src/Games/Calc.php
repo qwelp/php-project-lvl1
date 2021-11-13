@@ -9,7 +9,7 @@ use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 function calcGame(): void
 {
     $questionMain = 'What is the result of the expression?';
-    (array) $arParamsFunc = function () {
+    $arParamsFunc = function () {
         $result = 0;
         $min = rand(RANDOM_MIN, RANDOM_MAX);
         $max = rand(RANDOM_MIN, RANDOM_MAX);
