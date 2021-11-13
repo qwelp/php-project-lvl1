@@ -10,7 +10,7 @@ function evenGame(): void
 {
     $questionMain = 'Answer "yes" if the number is even, otherwise answer "no".';
     $arParamsFunc = function () {
-        $result = [];
+        $result = '';
         $randInt = rand(RANDOM_MIN, RANDOM_MAX);
 
         if ($randInt % 2 == 0) {
