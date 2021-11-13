@@ -4,8 +4,7 @@ namespace Brain\Games\Progression;
 
 use function Src\Engine\startGame;
 
-use const Src\Engine\RANDOM_MAX;
-use const Src\Engine\RANDOM_MIN;
+use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 
 function progressionGame(): void
 {
