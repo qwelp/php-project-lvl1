@@ -32,7 +32,7 @@ function startGame(string $question, callable $arParamsFunc): bool
     return true;
 }
 
-function welcome()
+function welcome(): string
 {
     line('Welcome to the Brain Game!');
     $nameUser = prompt('May I have your name?');
