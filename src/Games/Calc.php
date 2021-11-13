@@ -9,8 +9,8 @@ use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 function calcGame(): void
 {
     $questionMain = 'What is the result of the expression?';
-    $arParamsFunc = function () {
-        $result = [];
+    $arParamsFunc = function () :array {
+        $result = 0;
         $min = rand(RANDOM_MIN, RANDOM_MAX);
         $max = rand(RANDOM_MIN, RANDOM_MAX);
         $arrSymbol = ['+', '-', '*'];
@@ -30,7 +30,7 @@ function calcGame(): void
 
         $question = "{$min} {$symbol} {$max}";
 
-        return array($question, $result);
+        return [$question, $result];
     };
 
     startGame($questionMain, $arParamsFunc);
