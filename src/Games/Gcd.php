@@ -21,7 +21,7 @@ function gcd(int $a, int $b): int
 function gameGcd(): void
 {
     $questionMain = 'Find the greatest common divisor of given numbers.';
-    $arParamsFunc = function () {
+    $arParamsFunc = function (): array {
         $result = 0;
         $min = rand(RANDOM_MIN, RANDOM_MAX);
         $max = rand(RANDOM_MIN, RANDOM_MAX);

@@ -9,7 +9,7 @@ use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 function progressionGame(): void
 {
     $questionMain = 'What number is missing in the progression?';
-    $arParamsFunc = function () {
+    $arParamsFunc = function (): array {
         $result = 0;
         $arrResult = [];
         $randStep = rand(RANDOM_MIN, RANDOM_MAX);

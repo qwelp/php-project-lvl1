@@ -9,7 +9,7 @@ use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 function evenGame(): void
 {
     $questionMain = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $arParamsFunc = function (): callable {
+    $arParamsFunc = function (): array {
         $randInt = random_int(RANDOM_MIN, RANDOM_MAX);
         $result = ($randInt % 2 == 0) ? 'yes' : 'no';
 

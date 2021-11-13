@@ -22,7 +22,7 @@ function IsPrime(int $num): bool
 function primeGame(): void
 {
     $questionMain = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $arParamsFunc = function () {
+    $arParamsFunc = function (): array {
         $result = '';
         $randInt = rand(RANDOM_MIN, RANDOM_MAX);
 
