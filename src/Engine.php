@@ -9,7 +9,7 @@ const ROUNDS_COUNT = 3;
 const RANDOM_MIN = 1;
 const RANDOM_MAX = 5;
 
-function startGame(string $question, $arParamsFunc)
+function startGame(string $question, $arParamsFunc): string
 {
     $nameUser = welcome();
     line($question);

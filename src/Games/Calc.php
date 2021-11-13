@@ -30,7 +30,7 @@ function calcGame(): void
 
         $question = "{$min} {$symbol} {$max}";
 
-        return [$question, $result];
+        return array($question, $result);
     };
 
     startGame($questionMain, $arParamsFunc);
