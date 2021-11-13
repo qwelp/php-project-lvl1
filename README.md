@@ -23,7 +23,7 @@ Linux, php 7.4.3, composer, phpcs
 
 #### Инструкции по установке
 
-- git clone git@github.com:NeoSolution1998/php-project-lvl1.git
+- git clone git@github.com:qwelp/php-project-lvl1.git
 - make install
 
 #### Инструкции по запуску игр
