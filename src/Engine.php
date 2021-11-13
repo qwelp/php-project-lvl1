@@ -31,7 +31,7 @@ function startGame($question, $arParamsFunc)
     line("Congratulations, {$nameUser}!");
 }
 
-function welcome(): string
+function welcome()
 {
     line('Welcome to the Brain Game!');
     $nameUser = prompt('May I have your name?');

@@ -6,7 +6,7 @@ use function Src\Engine\startGame;
 
 use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 
-function evenGame(): void
+function evenGame()
 {
     $questionMain = 'Answer "yes" if the number is even, otherwise answer "no".';
     $arParamsFunc = function () {
