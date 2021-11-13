@@ -10,6 +10,7 @@ function progressionGame(): void
 {
     $questionMain = 'What number is missing in the progression?';
     $arParamsFunc = function () {
+        $result = 0;
         $arrResult = [];
         $randStep = rand(RANDOM_MIN, RANDOM_MAX);
         $randStartInt = rand(RANDOM_MIN, RANDOM_MAX);

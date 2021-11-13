@@ -28,7 +28,7 @@ function startGame(string $question, $arParamsFunc)
         }
     }
 
-    line("Congratulations, {$nameUser}!");
+    return line("Congratulations, {$nameUser}!");
 }
 
 function welcome(): string

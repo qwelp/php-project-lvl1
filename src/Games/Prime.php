@@ -23,6 +23,7 @@ function primeGame(): void
 {
     $questionMain = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $arParamsFunc = function () {
+        $result = '';
         $randInt = rand(RANDOM_MIN, RANDOM_MAX);
 
         $result = (IsPrime($randInt) === true) ? 'yes' : 'no';

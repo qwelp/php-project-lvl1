@@ -10,6 +10,7 @@ function calcGame(): void
 {
     $questionMain = 'What is the result of the expression?';
     $arParamsFunc = function () {
+        $result = [];
         $min = rand(RANDOM_MIN, RANDOM_MAX);
         $max = rand(RANDOM_MIN, RANDOM_MAX);
         $arrSymbol = ['+', '-', '*'];

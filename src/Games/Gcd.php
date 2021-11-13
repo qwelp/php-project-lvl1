@@ -22,6 +22,7 @@ function gameGcd(): void
 {
     $questionMain = 'Find the greatest common divisor of given numbers.';
     $arParamsFunc = function () {
+        $result = 0;
         $min = rand(RANDOM_MIN, RANDOM_MAX);
         $max = rand(RANDOM_MIN, RANDOM_MAX);
         $question = "{$min} {$max}";
