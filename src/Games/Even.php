@@ -2,60 +2,24 @@
 
 namespace Brain\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
-use function Src\Engine\welcome;
-use function Src\Engine\tryAgain;
-use function Src\Engine\yourAnswer;
+use function Src\Engine\startGame;
 
-use const Src\Engine\ROUNDS_COUNT;
+use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 
-function start(): void
+function evenGame(): void
 {
-    $flag = true;
-    $roundsCount = ROUNDS_COUNT;
-    $name = welcome();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-
-    do {
-        $randInt = rand(1, 100);
-        $answer = prompt("Question: {$randInt}");
+    $questionMain = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $arParamsFunc = function () {
+        $randInt = rand(RANDOM_MIN, RANDOM_MAX);
 
         if ($randInt % 2 == 0) {
-            $result = "yes";
+            $result = 'yes';
         } else {
-            $result = "no";
+            $result = 'no';
         }
 
-        if (in_array($answer, ['yes', 'no'], true)) {
-            if ($answer == 'yes') {
-                if ($randInt % 2 == 0) {
-                    yourAnswer($answer);
-                    $roundsCount--;
-                } else {
-                    $flag = false;
-                    $roundsCount = -1;
-                }
-            }
+        return [$randInt, $result];
+    };
 
-            if ($answer == 'no') {
-                if ($randInt % 2 != 0) {
-                    yourAnswer($answer);
-                    $roundsCount--;
-                } else {
-                    $flag = false;
-                    $roundsCount = -1;
-                }
-            }
-        } else {
-            $flag = false;
-            $roundsCount = -1;
-        }
-    } while ($roundsCount > 0);
-
-    if ($flag) {
-        line("Congratulations, {$name}!");
-    } else {
-        tryAgain($name, $answer, $result);
-    }
+    startGame($questionMain, $arParamsFunc);
 }

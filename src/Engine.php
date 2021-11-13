@@ -6,24 +6,42 @@ use function cli\line;
 use function cli\prompt;
 
 const ROUNDS_COUNT = 3;
+const RANDOM_MIN = 1;
+const RANDOM_MAX = 5;
+
+function startGame(string $question, $arParamsFunc)
+{
+    $nameUser = welcome();
+    line($question);
+
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        [$question, $correctAnswer] = $arParamsFunc();
+
+        line("Question: {$question}");
+        $answerUser = prompt("Your answer");
+
+        if ($answerUser == $correctAnswer) {
+            line("Correct!");
+        } else {
+            tryAgain($nameUser, $answerUser, $correctAnswer);
+            return false;
+        }
+    }
+
+    line("Congratulations, {$nameUser}!");
+}
 
 function welcome(): string
 {
     line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    $nameUser = prompt('May I have your name?');
+    line("Hello, %s!", $nameUser);
 
-    return $name;
+    return $nameUser;
 }
 
-function yourAnswer(string $answer): void
+function tryAgain(string $nameUser, string $answerUser, string $correctAnswer): void
 {
-    line("Your answer: {$answer}");
-    line("Correct!");
-}
-
-function tryAgain(string $name, string $answer, string $correctAnswer): void
-{
-    line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-    line("Let's try again, {$name}!");
+    line("'{$answerUser}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
+    line("Let's try again, {$nameUser}!");
 }

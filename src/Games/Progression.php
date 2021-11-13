@@ -2,25 +2,18 @@
 
 namespace Brain\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
-use function Src\Engine\welcome;
-use function Src\Engine\tryAgain;
-use function Src\Engine\yourAnswer;
+use function Src\Engine\startGame;
 
-use const Src\Engine\ROUNDS_COUNT;
+use const Src\Engine\RANDOM_MAX;
+use const Src\Engine\RANDOM_MIN;
 
-function start(): void
+function progressionGame(): void
 {
-    $flag = true;
-    $roundsCount = ROUNDS_COUNT;
-    $name = welcome();
-    line('What number is missing in the progression?');
-
-    do {
+    $questionMain = 'What number is missing in the progression?';
+    $arParamsFunc = function () {
         $arrResult = [];
-        $randStep = rand(2, 5);
-        $randStartInt = rand(1, 20);
+        $randStep = rand(RANDOM_MIN, RANDOM_MAX);
+        $randStartInt = rand(RANDOM_MIN, RANDOM_MAX);
         $startInt = 0;
 
         for ($i = 0; $i < 10; $i++) {
@@ -33,21 +26,8 @@ function start(): void
         $arrResult[$randElement] = '..';
         $getAnswer = implode(' ', $arrResult);
 
-        $answer = prompt("Question: {$getAnswer}");
+        return [$getAnswer, $result];
+    };
 
-        if ($answer == $result) {
-            yourAnswer($answer);
-            $roundsCount--;
-        } else {
-            $flag = false;
-            $roundsCount = -1;
-        }
-    } while ($roundsCount > 0);
-
-    if ($flag) {
-        line("Congratulations, {$name}!");
-    } else {
-        line("Your answer: {$answer}");
-        tryAgain($name, $answer, (string) $result);
-    }
+    startGame($questionMain, $arParamsFunc);
 }

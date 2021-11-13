@@ -2,44 +2,10 @@
 
 namespace Brain\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
-use function Src\Engine\welcome;
-use function Src\Engine\tryAgain;
-use function Src\Engine\yourAnswer;
+use function Src\Engine\startGame;
 
-use const Src\Engine\ROUNDS_COUNT;
-
-function start(): void
-{
-    $flag = true;
-    $roundsCount = ROUNDS_COUNT;
-    $name = welcome();
-    line('Find the greatest common divisor of given numbers.');
-
-    do {
-        $firstInt = rand(1, 100);
-        $lastInt = rand(1, 100);
-
-        $result = (string) gcd($firstInt, $lastInt);
-        $answer = prompt("Question: {$firstInt} {$lastInt}");
-
-        if ($answer == $result) {
-            yourAnswer($answer);
-            $roundsCount--;
-        } else {
-            $flag = false;
-            break;
-        }
-    } while ($roundsCount > 0);
-
-    if ($flag) {
-        line("Congratulations, {$name}!");
-    } else {
-        line("Your answer: {$answer}");
-        tryAgain($name, $answer, $result);
-    }
-}
+use const Src\Engine\RANDOM_MAX;
+use const Src\Engine\RANDOM_MIN;
 
 function gcd(int $a, int $b): int
 {
@@ -51,4 +17,20 @@ function gcd(int $a, int $b): int
         }
     }
     return $b;
+}
+
+function gameGcd(): void
+{
+    $questionMain = 'Find the greatest common divisor of given numbers.';
+    $arParamsFunc = function () {
+        $min = rand(RANDOM_MIN, RANDOM_MAX);
+        $max = rand(RANDOM_MIN, RANDOM_MAX);
+        $question = "{$min} {$max}";
+
+        $result = gcd($min, $max);
+
+        return [$question, $result];
+    };
+
+    startGame($questionMain, $arParamsFunc);
 }

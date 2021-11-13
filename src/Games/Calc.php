@@ -2,59 +2,35 @@
 
 namespace Brain\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
-use function Src\Engine\welcome;
-use function Src\Engine\tryAgain;
-use function Src\Engine\yourAnswer;
+use function Src\Engine\startGame;
 
-use const Src\Engine\ROUNDS_COUNT;
+use const Src\Engine\{RANDOM_MIN, RANDOM_MAX};
 
-function start(): void
+function calcGame(): void
 {
-    $result = 0;
-    $flag = true;
-    $arrSymbol = ['+', '-', '*'];
-    $roundsCount = ROUNDS_COUNT;
-    $name = welcome();
-    line('What is the result of the expression?');
-
-    do {
-        $firstInt = rand(1, 5);
-        $lastInt = rand(1, 5);
+    $questionMain = 'What is the result of the expression?';
+    $arParamsFunc = function () {
+        $min = rand(RANDOM_MIN, RANDOM_MAX);
+        $max = rand(RANDOM_MIN, RANDOM_MAX);
+        $arrSymbol = ['+', '-', '*'];
         $symbol =  $arrSymbol[array_rand($arrSymbol)];
 
         switch ($symbol) {
             case '+':
-                $result = $firstInt + $lastInt;
+                $result = $min + $max;
                 break;
             case '-':
-                $result = $firstInt - $lastInt;
+                $result = $min - $max;
                 break;
             case '*':
-                $result = $firstInt * $lastInt;
+                $result = $min * $max;
                 break;
         }
 
-        $question = "Question: {$firstInt} {$symbol} {$lastInt}";
-        $answer = prompt($question);
+        $question = "{$min} {$symbol} {$max}";
 
-        if ($answer == $result) {
-            yourAnswer($answer);
-            $roundsCount--;
-        } else {
-            tryAgain($name, $answer, (string) $result);
-            $flag = false;
-            $roundsCount = -1;
-        }
-    } while ($roundsCount > 0);
+        return [$question, $result];
+    };
 
-    if ($flag) {
-        line("Congratulations, {$name}!");
-    } else {
-        line($question);
-        line("Your answer: {$answer}");
-        line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
-        line("Let's try again, {$name}!");
-    }
+    startGame($questionMain, $arParamsFunc);
 }
